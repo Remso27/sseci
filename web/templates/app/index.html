@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{{title}}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+   {% load static %} 
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %} " rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <main id="main">
+    
+    <!-- ======= Contact Me Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+        
+        <div class="section-title">
+          <span class="sseci text-white">SSECI</span>
+          <h2 class="sse_ci text-white">SSECI</h2>
+          <p class="text-white">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        </div>
+
+        <div class="row bg-success opacity-100">
+          <div class="col-lg-12 ">
+            
+            <form action="{% url 'web:accueil' %}" enctype="multipart/form-data" method="post" role="form" class="php-email-form ">
+              {% csrf_token %}
+              <input type="hidden" name="next_page" value="{% url 'web:accueil' %}">
+                  <div class="alert  alert-dismissible fade 
+                    {% if message == 'success' %}
+                      show alert-primary
+                    {% elif message == 'error' %}
+                      show alert-danger
+                    {% endif %}" 
+                    role="alert">
+                    {% if message == 'success' %}
+                    <strong class="text-center">Succès!</strong> Votre identification a été prise en compte !
+                    {% elif message == 'error' %}
+                    <strong class="text-center">Erreur !</strong> Veuillez corriger les erreurs ci-dessous !
+                    {% endif %}
+                  </div> 
+              <div class="row">
+                <div class="col-md-4 form-group">
+                <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Nom de l'étudiant </span></p>
+                  {{form.nom}}
+                  {% if form.nom.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.nom.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Prénoms de l'étudiant </span> </p>
+                  {{form.prenom}}
+                  {% if form.prenom.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.prenom.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Sexe de l'étudiant </span></p>
+                  {{form.sexe}}
+                  {% if form.sexe.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.sexe.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4 form-group">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Lieu de naissance de l'étudiant </span></p>
+                  {{form.lieu_nais}}
+                  {% if form.lieu_nais.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.lieu_nais.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Date de naissance de l'étudiant </span></p>
+                  {{form.date_nais}}
+                  {% if form.date_nais.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.date_nais.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Email de l'étudiant </span></p>
+                  {{form.email}}
+                  {% if form.email.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.email.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-4 form-group">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Numéro de téléphone de l'étudiant </span></p>
+                  {{form.contact}}
+                  {% if form.contact.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.contact.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Numéro de carte d'étudiant </span></p>
+                  {{form.matricule}}
+                  {% if form.matricule.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.matricule.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Numéro CNI de l'étudiant </span></p>
+                  {{form.cni}}
+                  {% if form.cni.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.cni.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+              </div>
+              
+              <div class="row mt-3">
+                <div class="col-md-4 form-group">
+                  <p class="text-center fst-italic h5 text-white"> Copie de la carte d'étudiant (pdf-jpg-png)</p>
+                  {{form.carte_etudiant}}
+                  {% if form.carte_etudiant.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.carte_etudiant.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> Copie de cni (pdf-jpg-png)</p>
+                  {{form.carte_cni}}
+                  {% if form.carte_cni.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.carte_cni.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> Université d'accueil</p>
+                  {{form.universite}}
+                  {% if form.universite.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.universite.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-4 form-group">
+                  <p class="text-center fst-italic h5 text-white"> UFR</p>
+                  {{form.ufr}}
+                  {% if form.ufr.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.ufr.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> Filière</p>
+                  {{form.filiere}}
+                  {% if form.filiere.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.filiere.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> Spécialité</p>
+                  {{form.specialite}}
+                  {% if form.specialite.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.specialite.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-4 form-group">
+                  <p class="text-center fst-italic h5 text-white"> Niveau d'étude</p>
+                  {{form.niveau}}
+                  {% if form.niveau.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.niveau.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> Ville de residence</p>
+                  {{form.ville}}
+                  {% if form.ville.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.ville.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <p class="text-center fst-italic h5 text-white"> Commune de residence</p>
+                  {{form.commune}}
+                  {% if form.commune.errors %}
+                      <ul class="text-danger">
+                          {% for error in form.commune.errors %}
+                              <li>{{ error }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+              </div>
+             
+            <br>
+              <div class="text-center"><button type="submit" >Identifiez-vous!</button></div>
+            </form>
+          
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Contact Me Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3 class="ss_eci">SSECI</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div class="copyright">
+        &copy; Copyright <strong><span>sseci</span></strong>. Tous les droits sont réservés
+      </div>
+      <div class="credits">
+        Designed by <a href="">RKG</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <!--script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script-->
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
