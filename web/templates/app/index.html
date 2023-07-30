@@ -11,8 +11,8 @@
 
    {% load static %} 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %} " rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/logo.png' %} " rel="icon">
+  <link href="{% static 'assets/img/logo.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
@@ -29,20 +29,19 @@
 </head>
 
 <body>
-
+  <div class="container">
   <main id="main">
-    
-    <!-- ======= Contact Me Section ======= -->
+  
     <section id="contact" class="contact">
       <div class="container">
         
-        <div class="section-title">
+        <div  class="section-title ">
           <span class="sseci text-white">SSECI</span>
           <h2 class="sse_ci text-white">SSECI</h2>
-          <p class="text-white">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+          <p class=" sseci h1 text-white">Système de suivi des étudiants de Côte d'Ivoire</p>
         </div>
 
-        <div class="row bg-success opacity-100">
+        <div  class="row  p-3 mb-2 testimonials">
           <div class="col-lg-12 ">
             
             <form action="{% url 'web:accueil' %}" enctype="multipart/form-data" method="post" role="form" class="php-email-form ">
@@ -50,20 +49,20 @@
               <input type="hidden" name="next_page" value="{% url 'web:accueil' %}">
                   <div class="alert  alert-dismissible fade 
                     {% if message == 'success' %}
-                      show alert-primary
+                      show alert-success
                     {% elif message == 'error' %}
                       show alert-danger
                     {% endif %}" 
                     role="alert">
                     {% if message == 'success' %}
-                    <strong class="text-center">Succès!</strong> Votre identification a été prise en compte !
+                    <p class="text-center"><strong class="text-center text-success">Succès!</strong> Votre identification a été prise en compte ! </p>
                     {% elif message == 'error' %}
-                    <strong class="text-center">Erreur !</strong> Veuillez corriger les erreurs ci-dessous !
+                    <p class="text-center"> <strong >Erreur !</strong> Veuillez corriger les erreurs ci-dessous !</p>
                     {% endif %}
                   </div> 
               <div class="row">
                 <div class="col-md-4 form-group">
-                <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Nom de l'étudiant </span></p>
+                <p class="text-center fst-italic h5 "> <span class="badge text-white">Nom de l'étudiant </span></p>
                   {{form.nom}}
                   {% if form.nom.errors %}
                       <ul class="text-danger">
@@ -74,7 +73,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Prénoms de l'étudiant </span> </p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Prénoms de l'étudiant </span> </p>
                   {{form.prenom}}
                   {% if form.prenom.errors %}
                       <ul class="text-danger">
@@ -85,7 +84,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Sexe de l'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Sexe de l'étudiant </span></p>
                   {{form.sexe}}
                   {% if form.sexe.errors %}
                       <ul class="text-danger">
@@ -98,7 +97,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col-md-4 form-group">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Lieu de naissance de l'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Lieu de naissance de l'étudiant </span></p>
                   {{form.lieu_nais}}
                   {% if form.lieu_nais.errors %}
                       <ul class="text-danger">
@@ -109,7 +108,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Date de naissance de l'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Date de naissance de l'étudiant </span></p>
                   {{form.date_nais}}
                   {% if form.date_nais.errors %}
                       <ul class="text-danger">
@@ -120,7 +119,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Email de l'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Email de l'étudiant </span></p>
                   {{form.email}}
                   {% if form.email.errors %}
                       <ul class="text-danger">
@@ -134,7 +133,7 @@
 
               <div class="row mt-3">
                 <div class="col-md-4 form-group">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Numéro de téléphone de l'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Numéro de téléphone de l'étudiant </span></p>
                   {{form.contact}}
                   {% if form.contact.errors %}
                       <ul class="text-danger">
@@ -145,7 +144,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Numéro de carte d'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Numéro de carte d'étudiant </span></p>
                   {{form.matricule}}
                   {% if form.matricule.errors %}
                       <ul class="text-danger">
@@ -156,7 +155,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> <span class="badge bg-warning">Numéro CNI de l'étudiant </span></p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white">Numéro CNI de l'étudiant </span></p>
                   {{form.cni}}
                   {% if form.cni.errors %}
                       <ul class="text-danger">
@@ -170,7 +169,7 @@
               
               <div class="row mt-3">
                 <div class="col-md-4 form-group">
-                  <p class="text-center fst-italic h5 text-white"> Copie de la carte d'étudiant (pdf-jpg-png)</p>
+                  <p class="text-center fst-italic h5 text-white">  <span class="badge text-white"> Copie de la carte d'étudiant (format pdf)</span></p>
                   {{form.carte_etudiant}}
                   {% if form.carte_etudiant.errors %}
                       <ul class="text-danger">
@@ -181,7 +180,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> Copie de cni (pdf-jpg-png)</p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white"> Copie de cni (format pdf)</span></p>
                   {{form.carte_cni}}
                   {% if form.carte_cni.errors %}
                       <ul class="text-danger">
@@ -192,7 +191,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> Université d'accueil</p>
+                  <p class="text-center fst-italic h5 text-white"><span class="badge text-white"> Université d'accueil</span></p>
                   {{form.universite}}
                   {% if form.universite.errors %}
                       <ul class="text-danger">
@@ -206,7 +205,7 @@
 
               <div class="row mt-3">
                 <div class="col-md-4 form-group">
-                  <p class="text-center fst-italic h5 text-white"> UFR</p>
+                  <p class="text-center fst-italic h5 text-white"><span class="badge text-white"> UFR</span></p>
                   {{form.ufr}}
                   {% if form.ufr.errors %}
                       <ul class="text-danger">
@@ -217,7 +216,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> Filière</p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white"> Filière</span></p>
                   {{form.filiere}}
                   {% if form.filiere.errors %}
                       <ul class="text-danger">
@@ -228,7 +227,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> Spécialité</p>
+                  <p class="text-center fst-italic h5 text-white">  <span class="badge text-white"> Spécialité</span></p>
                   {{form.specialite}}
                   {% if form.specialite.errors %}
                       <ul class="text-danger">
@@ -242,7 +241,7 @@
 
               <div class="row mt-3">
                 <div class="col-md-4 form-group">
-                  <p class="text-center fst-italic h5 text-white"> Niveau d'étude</p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white"> Niveau d'étude</span></p>
                   {{form.niveau}}
                   {% if form.niveau.errors %}
                       <ul class="text-danger">
@@ -253,7 +252,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> Ville de residence</p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white"> Ville de residence</span></p>
                   {{form.ville}}
                   {% if form.ville.errors %}
                       <ul class="text-danger">
@@ -264,7 +263,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                  <p class="text-center fst-italic h5 text-white"> Commune de residence</p>
+                  <p class="text-center fst-italic h5 text-white"> <span class="badge text-white"> Commune de residence</span></p>
                   {{form.commune}}
                   {% if form.commune.errors %}
                       <ul class="text-danger">
@@ -292,16 +291,16 @@
   <footer id="footer">
     <div class="container">
       <h3 class="ss_eci">SSECI</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p class="sse_ci h1">Un système pour une et unique formation subventionnée par l'État ivoirien.</p>
       <div class="copyright">
         &copy; Copyright <strong><span>sseci</span></strong>. Tous les droits sont réservés
       </div>
       <div class="credits">
-        Designed by <a href="">RKG</a>
+        Designed by <a href="https://www.linkedin.com/in/kouassi-r%C3%A9mi-gnamien-1441081b7/" target="_blank">RKG</a>
       </div>
     </div>
   </footer><!-- End Footer -->
-
+</div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->

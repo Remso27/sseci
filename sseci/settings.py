@@ -137,7 +137,7 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "ADMINISTRATION",
     "site_logo": "assets/img/logo.png",
     "login_logo": "assets/img/logo.png",
-    "copyright": "SSECI",
+    "copyright": "sseci",
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)

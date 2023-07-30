@@ -12,7 +12,8 @@
 body {
   font-family: 'Times New Roman', Times, serif;
   color: #444444;
-  background-image: url('../img/bg_u.jpg');
+  background-image: url('../img/unsplash.jpg');
+  
 }
 
 a {
@@ -763,18 +764,31 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Testimonials
+# Form
 --------------------------------------------------------------*/
+
 .testimonials {
   padding: 80px 0;
-  background: url("../img/testimonials-bg.jpg") no-repeat;
   background-position: center center;
   background-size: cover;
   position: relative;
+  background: rgba(117, 119, 119, 0.7);
 }
 
+
+
 .testimonials::before {
-  content: "";
+  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(14, 16, 17, 0.7);
+}
+
+.form-bg::before {
+ 
   position: absolute;
   left: 0;
   right: 0;
@@ -787,10 +801,7 @@ section {
   margin-bottom: 40px;
 }
 
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
-}
+
 
 .testimonials .testimonial-item {
   text-align: center;
@@ -1138,7 +1149,7 @@ section {
 .contact .info-box {
   color: #444444;
   text-align: center;
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  box-shadow: 0 0 30px rgba(215, 216, 214, 0.6);
   padding: 20px 0 30px 0;
 }
 
@@ -1189,7 +1200,7 @@ section {
 }
 
 .contact .php-email-form {
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  box-shadow: 0 0 30px rgba(249, 115, 43, 0.6);
   padding: 27px;
 }
 
@@ -1391,3 +1402,9 @@ section {
   color: white;
   
 }
+
+.text-color{
+  color: #f47640;
+}
+
+

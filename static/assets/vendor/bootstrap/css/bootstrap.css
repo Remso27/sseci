@@ -1997,10 +1997,10 @@ progress {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #292221;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #24e921;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -2023,13 +2023,13 @@ progress {
   background-color: #fff;
   border-color: #86b7fe;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(243, 24, 4, 0.935);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {
-  color: #6c757d;
+  color: #ee5f22;
   opacity: 1;
 }
 .form-control::placeholder {
