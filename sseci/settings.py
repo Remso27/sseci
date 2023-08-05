@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'sseci.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql',
-        'ENGINE': 'mysql.connector.django',
+        'ENGINE': 'django.db.backends.postgresql',
+        #'ENGINE': 'mysql.connector.django',
         'NAME': 'sseci',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD': 'remso2710',
         'HOST': 'localhost',
     }

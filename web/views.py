@@ -14,7 +14,7 @@ import random
 import string
 
 
-def generate_random_file_name(length=15):
+def generate_random_file_name(length=5):
     """
         Générer des noms aleatoire pour les fichiers avant stockage
     """
@@ -23,7 +23,6 @@ def generate_random_file_name(length=15):
     return random_name
 
 
-# Create your views here.
 def accueil(request):
     message = ""
     form = EtudiantForm()
