@@ -43,7 +43,6 @@
 
         <div  class="row  p-3 mb-2 testimonials">
           <div class="col-lg-12 ">
-            
             <form action="{% url 'web:accueil' %}" enctype="multipart/form-data" method="post" role="form" class="php-email-form ">
               {% csrf_token %}
               <input type="hidden" name="next_page" value="{% url 'web:accueil' %}">
@@ -53,7 +52,7 @@
                     {% elif message == 'error' %}
                       show alert-danger
                     {% endif %}" 
-                    role="alert">
+                    role="alert"> 
                     {% if message == 'success' %}
                     <p class="text-center"><strong class="text-center text-success">Succès!</strong> Votre identification a été prise en compte ! </p>
                     {% elif message == 'error' %}

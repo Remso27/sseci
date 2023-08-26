@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,8 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(s3+s+_+8@95x@)v%n_r*&ue3zitvs11#h1*lr!2=k*wqotr!i'
+#SECRET_KEY = 'django-insecure-(s3+s+_+8@95x@)v%n_r*&ue3zitvs11#h1*lr!2=k*wqotr!i'
 
+SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-(s3+s+_+8@95x@)v%n_r*&ue3zitvs11#h1*lr!2=k*wqotr!i')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,7 +80,7 @@ WSGI_APPLICATION = 'sseci.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -87,6 +90,16 @@ DATABASES = {
         'PASSWORD': 'remso2710',
         'HOST': 'localhost',
     }
+}
+"""
+
+#Paramètres de base de données sur le projet Django
+DATABASES = {
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://sseci_user:9dhglRnleXYy6z0CD5nvKFWwHvRQJg2Y@dpg-cjl1edgcfp5c73e5boj0-a.oregon-postgres.render.com/sseci',
+        conn_max_age=600
+    )
 }
 
 
@@ -126,6 +139,14 @@ USE_TZ = True
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/uploads/'
 STATIC_URL = 'static/'
+if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
