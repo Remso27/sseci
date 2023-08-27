@@ -16,7 +16,7 @@ class EtudiantForm(forms.ModelForm):
             'date_nais': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Date de naissance', 'type': 'date'}),
             'sexe': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Sexe'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact'}),
+            'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Numéro de téléphone'}),
             'matricule': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Numéro Carte Etudiant'}),
             'cni': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Numero CNI'}),
             'carte_etudiant': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Carte Etudiant'}),
